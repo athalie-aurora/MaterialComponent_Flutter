@@ -40,7 +40,29 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 120.0),
             // TODO: Remove filled: true values (103)
+
+
             // TODO: Add TextField widgets (101)
+            // Username
+            TextField(
+              decoration: const InputDecoration(
+                filled: true,
+                labelText: 'Username'
+              ),
+            ),
+
+            const SizedBox(height: 12.0),
+
+            // Password
+            TextField(
+              decoration: const InputDecoration(
+                filled: true,
+                labelText: 'Password',
+              ),
+              obscureText: true,
+            )
+
+
             // TODO: Add button bar (101)
           ],
         ),
