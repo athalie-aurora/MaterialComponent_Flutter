@@ -12,6 +12,9 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  // Variabel untuk menentukan apakah teks password ditampilkan atau disembunyikan
+  bool _isPasswordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +35,8 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               controller: _usernameController, // Menggunakan text editing controller
               decoration: const InputDecoration(
-                  filled: true,
-                  labelText: 'Username'
+                filled: true,
+                labelText: 'Username',
               ),
             ),
 
@@ -42,11 +45,22 @@ class _LoginPageState extends State<LoginPage> {
             // Password
             TextField(
               controller: _passwordController, // Menggunakan text editing controller
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 filled: true,
                 labelText: 'Password',
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Theme.of(context).primaryColorDark,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                ),
               ),
-              obscureText: true,
+              obscureText: !_isPasswordVisible, // Gunakan obscureText untuk menyembunyikan atau menampilkan teks password
             ),
 
             // Button bar
