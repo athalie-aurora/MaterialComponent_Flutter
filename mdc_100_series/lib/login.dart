@@ -1,17 +1,3 @@
-// Copyright 2018-present the Flutter authors. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -22,7 +8,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // TODO: Add text editing controllers (101)
+  // Deklarasi text editing controllers
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,15 +28,12 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(height: 120.0),
-            // TODO: Remove filled: true values (103)
-
-
-            // TODO: Add TextField widgets (101)
             // Username
             TextField(
+              controller: _usernameController, // Menggunakan text editing controller
               decoration: const InputDecoration(
-                filled: true,
-                labelText: 'Username'
+                  filled: true,
+                  labelText: 'Username'
               ),
             ),
 
@@ -55,15 +41,35 @@ class _LoginPageState extends State<LoginPage> {
 
             // Password
             TextField(
+              controller: _passwordController, // Menggunakan text editing controller
               decoration: const InputDecoration(
                 filled: true,
                 labelText: 'Password',
               ),
               obscureText: true,
-            )
+            ),
 
-
-            // TODO: Add button bar (101)
+            // Button bar
+            OverflowBar(
+              alignment: MainAxisAlignment.end,
+              children: <Widget>[
+                // Cancel button
+                TextButton(
+                  onPressed: () {
+                    _usernameController.clear();
+                    _passwordController.clear();
+                  },
+                  child: const Text('Cancel'),
+                ),
+                // Next button
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Next'),
+                ),
+              ],
+            ),
           ],
         ),
       ),
