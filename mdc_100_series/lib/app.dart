@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
+import 'supplemental/cut_corners_border.dart'; // Import CutCornersBorder
 
-// TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatelessWidget {
   const ShrineApp({Key? key}) : super(key: key);
 
@@ -14,19 +14,13 @@ class ShrineApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (BuildContext context) => const LoginPage(),
-        // TODO: Change to a Backdrop with a HomePage frontLayer (104)
         '/': (BuildContext context) => const HomePage(),
-        // TODO: Make currentCategory field take _currentCategory (104)
-        // TODO: Pass _currentCategory for frontLayer (104)
-        // TODO: Change backLayer field value to CategoryMenuPage (104)
       },
-      // TODO: Customize the theme (103)
       theme: _buildShrineTheme(),
     );
   }
 }
 
-// TODO: Build a Shrine Theme (103)
 ThemeData _buildShrineTheme() {
   final ThemeData base = ThemeData.light(useMaterial3: true);
   return base.copyWith(
@@ -36,15 +30,13 @@ ThemeData _buildShrineTheme() {
       secondary: kShrineIndigo900,
       error: kShrineErrorRed,
     ),
-    // TODO: Add the text themes (103)
     textTheme: _buildShrineTextTheme(base.textTheme),
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: kShrinePink100,
     ),
-    // TODO: Decorate the inputs (103)
     inputDecorationTheme: const InputDecorationTheme(
-      border: OutlineInputBorder(),
-      focusedBorder: OutlineInputBorder(
+      border: CutCornersBorder(), // Use CutCornersBorder for text field shapes
+      focusedBorder: CutCornersBorder(
         borderSide: BorderSide(
           width: 2.0,
           color: kShrineBrown900,
@@ -57,7 +49,6 @@ ThemeData _buildShrineTheme() {
   );
 }
 
-// TODO: Build a Shrine Text Theme (103)
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base.copyWith(
     headlineSmall: base.headlineSmall!.copyWith(

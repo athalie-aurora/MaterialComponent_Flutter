@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shrine/colors.dart';
+import 'colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,11 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // Deklarasi text editing controllers
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  // Variabel untuk menentukan apakah teks password ditampilkan atau disembunyikan
   bool _isPasswordVisible = false;
 
   @override
@@ -32,20 +29,16 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(height: 120.0),
-            // Username
             TextField(
-              controller: _usernameController, // Menggunakan text editing controller
+              controller: _usernameController,
               decoration: const InputDecoration(
                 filled: true,
                 labelText: 'Username',
               ),
             ),
-
             const SizedBox(height: 12.0),
-
-            // Password
             TextField(
-              controller: _passwordController, // Menggunakan text editing controller
+              controller: _passwordController,
               decoration: InputDecoration(
                 filled: true,
                 labelText: 'Password',
@@ -61,22 +54,23 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
-              obscureText: !_isPasswordVisible, // Gunakan obscureText untuk menyembunyikan atau menampilkan teks password
+              obscureText: !_isPasswordVisible,
             ),
-
-            // Button bar
             OverflowBar(
               alignment: MainAxisAlignment.end,
               children: <Widget>[
-                // Cancel button
                 TextButton(
                   onPressed: () {
                     _usernameController.clear();
                     _passwordController.clear();
                   },
                   child: const Text('Cancel'),
+                  style: TextButton.styleFrom(
+                    shape: BeveledRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                    ),
+                  ),
                 ),
-                // Next button
                 ElevatedButton(
                   child: const Text('NEXT'),
                   onPressed: () {
@@ -85,7 +79,10 @@ class _LoginPageState extends State<LoginPage> {
                   style: ElevatedButton.styleFrom(
                     foregroundColor: kShrineBrown900,
                     backgroundColor: kShrineBlue100,
-                    elevation: 8.0, // Adjust elevation here
+                    elevation: 8.0,
+                    shape: const BeveledRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                    ),
                   ),
                 ),
               ],
