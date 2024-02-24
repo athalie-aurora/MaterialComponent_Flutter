@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'category_menu_page.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
 import 'model/product.dart';
-import 'supplemental/cut_corners_border.dart'; // Import CutCornersBorder
+import 'supplemental/cut_corners_border.dart';
 import 'backdrop.dart';
 
 class ShrineApp extends StatelessWidget {
@@ -19,7 +20,12 @@ class ShrineApp extends StatelessWidget {
         '/': (BuildContext context) => Backdrop(
           currentCategory: Category.all,
           frontLayer: HomePage(),
-          backLayer: Container(color: kShrinePink100),
+          backLayer: CategoryMenuPage(
+            currentCategory: Category.all,
+            onCategoryTap: (category) {
+              print('Category selected: $category');
+            },
+          ),
           frontTitle: Text('SHRINE'),
           backTitle: Text('MENU'),
         ),
