@@ -21,33 +21,65 @@ class ShrineApp extends StatelessWidget {
   }
 }
 
+// ThemeData _buildShrineTheme() {
+//   final ThemeData base = ThemeData.light(useMaterial3: true);
+//   return base.copyWith(
+//     colorScheme: base.colorScheme.copyWith(
+//       primary: kShrineBlue100,
+//       onPrimary: kShrineIndigo900,
+//       secondary: kShrineIndigo900,
+//       error: kShrineErrorRed,
+//     ),
+//     textTheme: _buildShrineTextTheme(base.textTheme),
+//     textSelectionTheme: const TextSelectionThemeData(
+//       selectionColor: kShrinePink100,
+//     ),
+//     inputDecorationTheme: const InputDecorationTheme(
+//       border: CutCornersBorder(), // Use CutCornersBorder for text field shapes
+//       focusedBorder: CutCornersBorder(
+//         borderSide: BorderSide(
+//           width: 2.0,
+//           color: kShrineBrown900,
+//         ),
+//       ),
+//       floatingLabelStyle: TextStyle(
+//         color: kShrineBrown900,
+//       ),
+//     ),
+//   );
+// }
+
 ThemeData _buildShrineTheme() {
-  final ThemeData base = ThemeData.light(useMaterial3: true);
+  final ThemeData base = ThemeData.light();
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
-      primary: kShrineBlue100,
-      onPrimary: kShrineIndigo900,
-      secondary: kShrineIndigo900,
+      primary: kShrinePurple,
+      secondary: kShrinePurple,
       error: kShrineErrorRed,
     ),
-    textTheme: _buildShrineTextTheme(base.textTheme),
+    scaffoldBackgroundColor: kShrineSurfaceWhite,
     textSelectionTheme: const TextSelectionThemeData(
-      selectionColor: kShrinePink100,
+      selectionColor: kShrinePurple,
+    ),
+    appBarTheme: const AppBarTheme(
+      foregroundColor: kShrineBrown900,
+      backgroundColor: kShrineBlue100,
     ),
     inputDecorationTheme: const InputDecorationTheme(
-      border: CutCornersBorder(), // Use CutCornersBorder for text field shapes
+      border: CutCornersBorder(),
       focusedBorder: CutCornersBorder(
         borderSide: BorderSide(
           width: 2.0,
-          color: kShrineBrown900,
+          color: kShrinePurple,
         ),
       ),
       floatingLabelStyle: TextStyle(
-        color: kShrineBrown900,
+        color: kShrinePurple,
       ),
     ),
   );
 }
+
 
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base.copyWith(

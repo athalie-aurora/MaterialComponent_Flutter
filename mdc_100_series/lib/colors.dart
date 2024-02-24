@@ -21,4 +21,5 @@ const kShrineBlue400 = Color(0xFF42A5F5);
 
 const kShrineIndigo900 = Color(0xFF1A237E);
 
+const kShrinePurple = Color(0xFF5D1049);
 
