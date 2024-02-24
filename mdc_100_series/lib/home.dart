@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     return products.map((product) {
       return Card(
         clipBehavior: Clip.antiAlias,
+        elevation: 0.0, // Adjust elevation here
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

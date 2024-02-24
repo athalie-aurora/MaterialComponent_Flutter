@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shrine/colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -77,10 +78,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 // Next button
                 ElevatedButton(
+                  child: const Text('NEXT'),
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text('Next'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: kShrineBrown900,
+                    backgroundColor: kShrineBlue100,
+                    elevation: 8.0, // Adjust elevation here
+                  ),
                 ),
               ],
             ),
